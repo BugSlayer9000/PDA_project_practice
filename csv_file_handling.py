@@ -7,7 +7,8 @@ class CSVFileHandling():
     
     
     def __init__(self) -> None:
-        self._initialize_file()
+        if len(self.get_list_of_dicts()) == 0:
+            self._initialize_file()
     
     def _initialize_file(self):
         with open(self.csv_file_path, "w", newline="") as f:
@@ -20,4 +21,15 @@ class CSVFileHandling():
             next(reader)
             return list(reader)
     
+    def save_file(self, data:list):
+        with open(self.csv_file_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["title","author","genre","year","price"])
+            writer.writerows(data)
     
+    def get_list_of_dicts(self):
+        with open(self.csv_file_path, "r") as f:
+            reader = csv.DictReader(f)
+            return list(reader)
+        
+
