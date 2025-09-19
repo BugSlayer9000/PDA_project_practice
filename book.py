@@ -37,6 +37,28 @@ class Book:
         
         if not is_removed:
             print("Book not found !")
+    
+    def search_book_by_title(self, title:str):
+        
+        is_found = False
+        
+        data = self.csv.load_file()
+        
+        for book in data:
+            if book[0].lower().strip() == title.lower().strip() :
+                print("Book found ! ")
+                print(f"\nTitle - {book[0]}\nAuthor - {book[1]}\nGenre - {book[2]}\nYear - {book[3]}\nPrice - £ {book[4]}")
+                is_found = True
+        
+        
+        if not is_found:
+            print("Book not found ! ")
+    
+    
+    
+    
+
+        
         
         
                 
@@ -50,3 +72,4 @@ b = Book()
 
 
 b.remove_book("pakaya")
+b.search_book_by_title("Uranus")
