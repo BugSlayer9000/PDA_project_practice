@@ -65,6 +65,26 @@ class Book:
         
         print("Sorted all the items")
     
+    def oldest_and_newsest_book(self):
+        
+        data = [i for i in self.csv.get_list_of_dicts()]
+        
+        sorted_list_of_books = [i for i in (sorted(data, key=lambda x: x["year"]))]
+        
+        
+        first_book = sorted_list_of_books[0]
+        
+        last_book = sorted_list_of_books[len(sorted_list_of_books)-1]
+        
+        print(f"\nOldest Book\nTitle = {first_book["title"]}\nYear = {first_book["year"]}")
+        print(f"\nNewest Book\nTitle = {last_book["title"]}\nYear = {last_book["year"]}")
+    
+    
+        
+            
+        
+        
+    
     
     
     
@@ -82,4 +102,4 @@ class Book:
 b = Book()
 
 
-b.sort_books()
+b.oldest_and_newsest_book()
