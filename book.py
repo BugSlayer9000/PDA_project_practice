@@ -54,6 +54,17 @@ class Book:
         if not is_found:
             print("Book not found ! ")
     
+    def sort_books(self):
+        
+        data = self.csv.load_file()
+        
+        sorted_list_of_lists = [sorted(data, key=lambda book: book[0].lower())]
+        
+        for i in sorted_list_of_lists:
+            self.csv.save_file(i)
+        
+        print("Sorted all the items")
+    
     
     
     
@@ -71,5 +82,4 @@ class Book:
 b = Book()
 
 
-b.remove_book("pakaya")
-b.search_book_by_title("Uranus")
+b.sort_books()
