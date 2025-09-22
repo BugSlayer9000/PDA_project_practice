@@ -80,7 +80,48 @@ class Book:
         print(f"\nNewest Book\nTitle = {last_book["title"]}\nYear = {last_book["year"]}")
     
     
+    # this privet method will be used to use for title finding by author method.
+    # after finding the author exists the method asks for the list of books under that author from using this privet method.
+    def _get_books_for_author(self, author):
         
+        list_of_books = []
+        
+        for i in self.csv.get_list_of_dicts():
+            if i["author"].lower().strip() == author:
+                list_of_books.append(i["title"])
+        
+        return list_of_books
+    
+    def count_titles_by_author(self, author_name):
+        
+        """
+        Plan - go through the saved SVG and collect the authors names 
+        then show them
+        """
+        self.list_of_authors = []
+        
+        for i in self.csv.get_list_of_dicts():
+            if i["author"].lower().strip() not in self.list_of_authors:
+                self.list_of_authors.append(i["author"].lower().strip())
+        
+        
+        if  author_name.lower().strip() in self.list_of_authors:
+            print("\nAuthor found ! ")
+            
+            data = self._get_books_for_author(author_name.lower().strip())
+            
+            print("\nName of the books. \n")
+            for number,i in enumerate(data, 1):
+                print(f"{number}.{i}")
+            
+        else:
+            print("\nAuthor not found !")
+    
+    # this method is is meant for main file to get the authors to show th user 
+    
+    @property
+    def get_list_of_authors(self):
+        return self.list_of_authors
             
         
         
@@ -103,3 +144,4 @@ b = Book()
 
 
 b.oldest_and_newsest_book()
+b.count_titles_by_author("h. drake")
