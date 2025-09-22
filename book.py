@@ -130,6 +130,10 @@ class Book:
         
         data = self.csv.get_list_of_dicts()
         
+        if len(data) == 0:
+            print("No data in the system")
+            return
+        
         for i in data:
             title_list.append(i["title"])
         
@@ -150,6 +154,10 @@ class Book:
         title_list = []
         
         data = self.csv.get_list_of_dicts()
+        
+        if len(data) == 0:
+            print("No data in the system")
+            return
         
         for i in data:
             title_list.append([i["title"],i["year"]])
@@ -185,10 +193,3 @@ class Book:
     
 
 
-b = Book()
-
-
-b.oldest_and_newsest_book()
-b.count_titles_by_author("h. drake")
-b.get_separate_titles_file()
-b.get_separate_titles_and_year_file()
