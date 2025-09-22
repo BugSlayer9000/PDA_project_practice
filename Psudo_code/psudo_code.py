@@ -22,9 +22,9 @@ File handling file
         
     
     
-add book file 
+book file 
 
-    AddBook -> class
+    Book -> class
     
         creates an instance of the csv file 
         
