@@ -116,6 +116,25 @@ def main():
             
             book_func.oldest_and_newest_book()
         
+        elif user_input == 6:
+            
+            print("\nExport Features")
+            print("\n1.Export the titles")
+            print("\n2.Export titles and years")
+            
+            try:
+                export_input = int(input("\nEnter your choice : "))
+            except ValueError:
+                print("Invalid Input ! ")
+                continue
+            
+            if export_input == 1:
+                book_func.get_separate_titles_file()
+                print("File exported sucessfully")
+            elif export_input == 2:
+                book_func.get_separate_titles_and_year_file()
+                print("File exported sucessfully ! ")
+            
                     
         
             
