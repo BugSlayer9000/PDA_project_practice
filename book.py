@@ -65,7 +65,7 @@ class Book:
         
         print("Sorted all the items")
     
-    def oldest_and_newsest_book(self):
+    def oldest_and_newest_book(self):
         
         data = [i for i in self.csv.get_list_of_dicts()]
         

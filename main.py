@@ -109,8 +109,14 @@ def main():
             elif confirmation == "n":
                 print("Operation Cancelled ! ")
                 continue
+        
+        elif user_input == 5:
             
+            print("\nFind the oldest book and the newest books")
             
+            book_func.oldest_and_newest_book()
+        
+                    
         
             
             
