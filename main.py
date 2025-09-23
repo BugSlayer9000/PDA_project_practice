@@ -134,6 +134,21 @@ def main():
             elif export_input == 2:
                 book_func.get_separate_titles_and_year_file()
                 print("File exported sucessfully ! ")
+        
+        elif user_input == 7:
+            
+            print("\nCount titles by author")
+            
+            for number,i in enumerate(book_func.get_list_of_authors,1):
+                print(f"{number}.{i}")
+            
+            author_input = input("Enter the name of the author : ").lower().strip()
+            
+            book_func.count_titles_by_author(author_input)
+        
+        elif user_input == 8:
+            print("Thanks for using this program \nCreator - Samod Subhasha")
+                
             
                     
         

@@ -121,6 +121,12 @@ class Book:
     
     @property
     def get_list_of_authors(self):
+        self.list_of_authors = []
+        
+        for i in self.csv.get_list_of_dicts():
+            if i["author"].lower().strip() not in self.list_of_authors:
+                self.list_of_authors.append(i["author"].lower().strip())
+        
         return self.list_of_authors
     
     @property
