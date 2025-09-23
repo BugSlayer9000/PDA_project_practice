@@ -74,7 +74,7 @@ def main():
             
             if title_input in [i["title"] for i in books_available]:
                 print("book found ! Removing now ! ")
-                book_func.remove_book(title_input)
+                book_func.remove_book(title_input)##
         
         
 
