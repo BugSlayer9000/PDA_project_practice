@@ -123,6 +123,10 @@ class Book:
     def get_list_of_authors(self):
         return self.list_of_authors
     
+    @property
+    def get_dict_of_books(self):
+        return self.csv.get_list_of_dicts()
+    
     def get_separate_titles_file(self):
         # get a list of titles then write it into a new cv
         
