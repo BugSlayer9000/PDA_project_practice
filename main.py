@@ -98,7 +98,18 @@ def main():
                 print("\nBook not found ! ")
                 continue
         
-        
+        elif user_input == 4:
+            
+            print("\nSort books by title")
+            
+            confirmation = input("Confirm yes or no ? y/n").lower().strip()
+            
+            if confirmation == "y":
+                book_func.sort_books()
+            elif confirmation == "n":
+                print("Operation Cancelled ! ")
+                continue
+            
             
         
             
