@@ -1,6 +1,6 @@
 from csv_file_handling import CSVFileHandling
-
-
+from pathlib import Path
+import csv
 
 class Book:
     
@@ -122,7 +122,60 @@ class Book:
     @property
     def get_list_of_authors(self):
         return self.list_of_authors
-            
+    
+    def get_separate_titles_file(self):
+        # get a list of titles then write it into a new cv
+        
+        title_list = []
+        
+        data = self.csv.get_list_of_dicts()
+        
+        if len(data) == 0:
+            print("No data in the system")
+            return
+        
+        for i in data:
+            title_list.append(i["title"])
+        
+        
+        
+        file_path = Path("files/titles.csv")
+        file_path.touch(exist_ok=True)
+        
+        # initialize file
+        with open(file_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["titles"])
+            writer.writerows([[title] for title in title_list])
+    
+    def get_separate_titles_and_year_file(self):
+        # get a list of titles then write it into a new cv
+        
+        title_list = []
+        
+        data = self.csv.get_list_of_dicts()
+        
+        if len(data) == 0:
+            print("No data in the system")
+            return
+        
+        for i in data:
+            title_list.append([i["title"],i["year"]])
+        
+        
+        
+        file_path = Path("files/titles_year.csv")
+        file_path.touch(exist_ok=True)
+        
+        # initialize file
+        with open(file_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["titles","year"])
+            writer.writerows([title for title in title_list])
+    
+    
+    
+       
         
         
     
@@ -140,8 +193,3 @@ class Book:
     
 
 
-b = Book()
-
-
-b.oldest_and_newsest_book()
-b.count_titles_by_author("h. drake")
