@@ -1,7 +1,16 @@
 from book import Book
 
+book_func = Book()
+
+def print_titles():
+    books_available = book_func.get_dict_of_books
+    
+    for number,i in enumerate(books_available,1):
+        print(f"{number} - {i["title"]}")
+
+
 def main():
-    book_func = Book()
+    
     
     print(f"{"#"*50}")
     print(f"📚 Anniesland Library - Book Management Application")
@@ -67,14 +76,36 @@ def main():
                 print("No books available in the system !")
                 continue
             
-            for number,i in enumerate(books_available,1):
-                print(f"{number} - {i["title"]}")
+            print_titles()
             
             title_input = input("Enter the title of the book to remove : ").lower().strip()
             
             if title_input in [i["title"] for i in books_available]:
                 print("book found ! Removing now ! ")
-                book_func.remove_book(title_input)##
+                book_func.remove_book(title_input)
+            else:
+                print("Book not found !")
+        
+        elif user_input == 3:
+            
+            print_titles()
+            
+            title_input = input("Enter the name of the title you wanna search : ").lower().strip()
+            
+            if title_input in [(i["title"]).lower().strip() for i in book_func.get_dict_of_books]:
+                book_func.search_book_by_title(title_input)
+            else:
+                print("\nBook not found ! ")
+                continue
+        
+        
+            
+        
+            
+            
+            
+            
+            
         
         
 
