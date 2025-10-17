@@ -18,7 +18,7 @@ def main():
     
     genres = ['fiction', 'non-fiction', 'mystery', 'thriller', 'fantasy', 'science fiction', 
                 'romance', 'historical fiction', 'biography', 'memoir', 'self-help', 'adventure', 
-                'horror', 'crime', 'drama', 'poetry', 'young adult', "children’s", 'graphic novel', 
+                'horror', 'crime', 'drama', 'poetry', 'young adult', "children's", 'graphic novel', 
                 'dystopian', 'classical', 'literary fiction', 'philosophical', 'travel', 'cookbooks', 
                 'reference', 'guide', 'paranormal', 'supernatural', 'short stories', 'contemporary', 
                 'spiritual']
@@ -45,6 +45,7 @@ def main():
             
             print("\nAdd a book")
             
+            # Convert to lowercase for consistent storage and searching
             book_title = input("Enter the title of the book : ").lower().strip()
             if len(book_title) < 2:
                 print("Name is too short !")
@@ -55,6 +56,7 @@ def main():
                 print("Name is too short ! ")
             
             book_genre = input("Enter the book genre : ").lower().strip()
+            # Validate genre against predefined list
             if book_genre not in genres:
                 print("Warning - not a valid book genre ! ")
                 continue
@@ -80,6 +82,7 @@ def main():
             
             title_input = input("Enter the title of the book to remove : ").lower().strip()
             
+            # Pre-check if book exists before attempting removal
             if title_input in [i["title"] for i in books_available]:
                 print("book found ! Removing now ! ")
                 book_func.remove_book(title_input)
@@ -92,6 +95,7 @@ def main():
             
             title_input = input("Enter the name of the title you wanna search : ").lower().strip()
             
+            # List comprehension checks all titles (converted to lowercase)
             if title_input in [(i["title"]).lower().strip() for i in book_func.get_dict_of_books]:
                 book_func.search_book_by_title(title_input)
             else:
@@ -147,8 +151,9 @@ def main():
             book_func.count_titles_by_author(author_input)
         
         elif user_input == 8:
+            # NOTE: Missing 'break' statement - loop will continue instead of exiting
             print("Thanks for using this program \nCreator - Samod Subhasha")
-                
+            break
             
                     
         
