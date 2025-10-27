@@ -24,7 +24,7 @@ def main():
                 'spiritual']
     
     while True:    
-        print("Main Menu")
+        print("\nMain Menu")
         print("\n1.Add Book")
         print("2.Remove Book")
         print("3.Search books by title")
