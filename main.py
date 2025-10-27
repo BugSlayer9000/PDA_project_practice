@@ -151,7 +151,6 @@ def main():
             book_func.count_titles_by_author(author_input)
         
         elif user_input == 8:
-            # NOTE: Missing 'break' statement - loop will continue instead of exiting
             print("Thanks for using this program \nCreator - Samod Subhasha")
             break
             
